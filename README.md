@@ -5,6 +5,10 @@ Set of LINQ-style extension methods that add useful functions not present in Sys
 
 Download, build, import.  Or you can just copy the extension methods you need striaight from [EnumerableExtensions.cs](JCharlesworth.Linq.Extra/EnumerableExtensions.cs) and [DictionaryExtensions.cs](JCharlesworth.Linq.Extra/DictionaryExtensions.cs)
 
+![Linq.Extra code screenshot](/screenshot.png?raw=true "Linq.Extra code screenshot")
+
+# Included Collection Extension Methods
+
 ## Page(pageNumber, pageSize)
 
 Returns a chunk of the collection at a specific page number and size
