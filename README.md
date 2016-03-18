@@ -3,7 +3,7 @@ Set of LINQ-style extension methods that add useful functions not present in Sys
 
 # Usage
 
-Download, build, import.  Or you can just copy the extension methods you need striaight from [EnumerableExtensions.cs](Linq.Extra/JCharlesworth.Linq.Extra/EnumerableExtensions.cs) and [DictionaryExtensions.cs](Linq.Extra/JCharlesworth.Linq.Extra/DictionaryExtensions.cs)
+Download, build, import.  Or you can just copy the extension methods you need striaight from [EnumerableExtensions.cs](JCharlesworth.Linq.Extra/EnumerableExtensions.cs) and [DictionaryExtensions.cs](JCharlesworth.Linq.Extra/DictionaryExtensions.cs)
 
 ## Page(pageNumber, pageSize)
 
