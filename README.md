@@ -1,6 +1,10 @@
 # Linq.Extra
 Set of LINQ-style extension methods that add useful functions not present in System.Linq
 
+# Usage
+
+Download, build, import.  Or you can just copy the extension methods you need striaight from [EnumerableExtensions.cs](Linq.Extra/JCharlesworth.Linq.Extra/EnumerableExtensions.cs) and [DictionaryExtensions.cs](Linq.Extra/JCharlesworth.Linq.Extra/DictionaryExtensions.cs)
+
 ## Page(pageNumber, pageSize)
 
 Returns a chunk of the collection at a specific page number and size
