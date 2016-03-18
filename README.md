@@ -5,7 +5,7 @@ Set of LINQ-style extension methods that add useful functions not present in Sys
 
 Download, build, import.  Or you can just copy the extension methods you need striaight from [EnumerableExtensions.cs](JCharlesworth.Linq.Extra/EnumerableExtensions.cs) and [DictionaryExtensions.cs](JCharlesworth.Linq.Extra/DictionaryExtensions.cs)
 
-![Linq.Extra code screenshot](JCharlesworth.Linq.Extra/screenshot.PNG?raw=true "Linq.Extra code screenshot")
+![Linq.Extra code screenshot](https://raw.github.com/jcharlesworthuk/Linq.Extra/master/screenshot.PNG)
 
 # Included Collection Extension Methods
 
