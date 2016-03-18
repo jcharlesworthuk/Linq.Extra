@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jcharlesworthuk/Linq.Extra.svg?branch=master)](https://travis-ci.org/jcharlesworthuk/Linq.Extra)
+
 # Linq.Extra
 Set of LINQ-style extension methods that add useful functions not present in System.Linq
 
