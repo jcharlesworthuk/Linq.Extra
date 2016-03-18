@@ -1,4 +1,10 @@
-﻿using System;
+﻿// <copyright file="DictionaryExtensions.cs">
+// Copyright (c) 2016 All Rights Reserved
+// </copyright>
+// <author>James Charlesworth</author>
+// <date>18th March 2016</date>
+// <summary>Set of dictionary extension methods</summary>
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

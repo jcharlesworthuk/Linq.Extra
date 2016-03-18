@@ -1,4 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// <copyright file="EnumerableExtensionsTests.cs">
+// Copyright (c) 2016 All Rights Reserved
+// </copyright>
+// <author>James Charlesworth</author>
+// <date>18th March 2016</date>
+// <summary>Enumeration unit tests</summary>
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JCharlesworth.Linq.Extra;
 using System;
 using System.Collections.Generic;

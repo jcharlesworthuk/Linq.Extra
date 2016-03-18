@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("JCharlesworth.Linq.Extra.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Citywire Financial Publishers Ltd")]
+[assembly: AssemblyCompany("James Charlesworth")]
 [assembly: AssemblyProduct("JCharlesworth.Linq.Extra.Tests")]
-[assembly: AssemblyCopyright("Copyright © Citywire Financial Publishers Ltd 2016")]
+[assembly: AssemblyCopyright("Copyright © James Charlesworth 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

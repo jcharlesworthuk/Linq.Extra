@@ -1,4 +1,10 @@
-﻿using System;
+﻿// <copyright file="EnumerableExtensions.cs">
+// Copyright (c) 2016 All Rights Reserved
+// </copyright>
+// <author>James Charlesworth</author>
+// <date>18th March 2016</date>
+// <summary>Set of LINQ-style extension methods that add useful functions not present in System.Linq</summary>
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -33,7 +39,7 @@ namespace JCharlesworth.Linq.Extra
 
 
         /// <summary>
-        /// Fiorces the collection to enumerate and does not return a value, Similar to IList.ForEach() without any operations
+        /// Forces the collection to enumerate and does not return a value, Similar to IList.ForEach() without any operations
         /// </summary>
         /// <typeparam name="T">The type of the elements of source</typeparam>
         /// <param name="source">An System.Collections.Generic.IEnumerable`1 to enumerate.</param>
