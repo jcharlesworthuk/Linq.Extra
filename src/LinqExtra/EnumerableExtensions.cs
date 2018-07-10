@@ -1,17 +1,9 @@
-﻿// <copyright file="EnumerableExtensions.cs">
-// Copyright (c) 2016 All Rights Reserved
-// </copyright>
-// <author>James Charlesworth</author>
-// <date>18th March 2016</date>
-// <summary>Set of LINQ-style extension methods that add useful functions not present in System.Linq</summary>
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace JCharlesworth.Linq.Extra
+namespace LinqExtra
 {
     public static class EnumerableExtensions
     {
@@ -55,16 +47,19 @@ namespace JCharlesworth.Linq.Extra
         /// <returns></returns>
         public static IEnumerable<T> Interweave<T>(this IEnumerable<T> source, IEnumerable<T> other)
         {
-            var enumeratorA = source.GetEnumerator();
-            var enumeratorB = other.GetEnumerator();
-            while (enumeratorA.MoveNext())
+            using (var enumeratorA = source.GetEnumerator())
+            using (var enumeratorB = other.GetEnumerator())
             {
-                yield return enumeratorA.Current;
-                if (enumeratorB.MoveNext())
+                while (enumeratorA.MoveNext())
+                {
+                    yield return enumeratorA.Current;
+                    if (enumeratorB.MoveNext())
+                        yield return enumeratorB.Current;
+                }
+
+                while (enumeratorB.MoveNext())
                     yield return enumeratorB.Current;
             }
-            while (enumeratorB.MoveNext())
-                yield return enumeratorB.Current;
         }
 
         /// <summary>
@@ -76,11 +71,7 @@ namespace JCharlesworth.Linq.Extra
         /// <returns></returns>
         public static IEnumerable<T> EveryOther<T>(this IEnumerable<T> source, int every = 2)
         {
-            foreach(var indexed in source.Select((item, index) => new { item, index }))
-            {
-                if ((indexed.index + 1) % every == 0)
-                    yield return indexed.item;
-            }
+            return source.Select((item, index) => new {item, index}).Where(indexed => (indexed.index + 1) % every == 0).Select(indexed => indexed.item);
         }
 
         /// <summary>
@@ -190,6 +181,43 @@ namespace JCharlesworth.Linq.Extra
         public static IEnumerable<T> Distinct<T, TProperty>(this IEnumerable<T> source, Func<T, TProperty> selector)
             where TProperty : struct, IEquatable<TProperty> 
             => source.Distinct(new DistinctPropertyComparer<T, TProperty>(selector));
+
+
+        /// <summary>
+        /// Takes a collection and breaks it up into many smaller chunks.
+        /// </summary>
+        /// <typeparam name="T">The type of the contents.</typeparam>
+        /// <param name="source">An System.Collections.Generic.IEnumerable`1 to chunk.</param>
+        /// <param name="chunkSize">The size to chunk into</param>
+        /// <returns>A collection of collections.</returns>
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> source, int chunkSize)
+        {
+            using (var enumerator = source.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    var batch = new List<T> { enumerator.Current };
+                    int index = 1;
+                    while (index++ < chunkSize && enumerator.MoveNext())
+                    {
+                        batch.Add(enumerator.Current);
+                    }
+
+                    yield return batch;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns true if this enumerable is null or empty
+        /// </summary>
+        /// <typeparam name="T">Collection item type</typeparam>
+        /// <param name="source">Source collection, or null</param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> source)
+        {
+            return source == null || !source.Any();
+        }
 
         /// <summary>
         /// Property comparer for value types

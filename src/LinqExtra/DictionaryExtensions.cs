@@ -1,16 +1,7 @@
-﻿// <copyright file="DictionaryExtensions.cs">
-// Copyright (c) 2016 All Rights Reserved
-// </copyright>
-// <author>James Charlesworth</author>
-// <date>18th March 2016</date>
-// <summary>Set of dictionary extension methods</summary>
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace JCharlesworth.Linq.Extra
+namespace LinqExtra
 {
     public static class DictionaryExtensions
     {
@@ -22,8 +13,7 @@ namespace JCharlesworth.Linq.Extra
         /// <returns></returns>
         public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
         {
-            TValue ret;
-            dictionary.TryGetValue(key, out ret);
+            dictionary.TryGetValue(key, out TValue ret);
             return ret;
         }
 
@@ -37,8 +27,7 @@ namespace JCharlesworth.Linq.Extra
         public static TValue GetValueOr<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue substitute)
             where TValue : struct, IEquatable<TValue>
         {
-            TValue ret;
-            dictionary.TryGetValue(key, out ret);
+            dictionary.TryGetValue(key, out TValue ret);
             return ret.Equals(default(TValue)) ? substitute : ret;
         }
 
@@ -52,9 +41,8 @@ namespace JCharlesworth.Linq.Extra
         public static TValue GetValueOr<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, Func<TValue> substitute)
             where TValue : class
         {
-            TValue ret;
-            dictionary.TryGetValue(key, out ret);
-            return object.Equals(ret, default(TValue)) ? substitute() : ret;
+            dictionary.TryGetValue(key, out TValue ret);
+            return ret ?? substitute();
         }
     }
 }
